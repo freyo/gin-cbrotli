@@ -1,12 +1,11 @@
 package brotli
 
 import (
-	"compress/gzip"
-	"net/http"
 	"regexp"
 	"strings"
 
 	"github.com/gin-gonic/gin"
+	"github.com/google/brotli/go/cbrotli"
 )
 
 var (
@@ -105,11 +104,7 @@ func DefaultDecompressHandle(c *gin.Context) {
 	if c.Request.Body == nil {
 		return
 	}
-	r, err := gzip.NewReader(c.Request.Body)
-	if err != nil {
-		c.AbortWithError(http.StatusBadRequest, err)
-		return
-	}
+	r := cbrotli.NewReader(c.Request.Body)
 	c.Request.Header.Del("Content-Encoding")
 	c.Request.Header.Del("Content-Length")
 	c.Request.Body = r
