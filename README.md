@@ -63,3 +63,43 @@ func main() {
 	r.Run(":8080")
 }
 ```
+
+Work with Gzip example:
+
+```go
+package main
+
+import (
+	"fmt"
+	"net/http"
+	"strings"
+	"time"
+
+	"github.com/freyo/gin-cbrotli"
+	"github.com/gin-contrib/gzip"
+	"github.com/gin-gonic/gin"
+	"github.com/google/brotli/go/cbrotli"
+)
+
+func main() {
+	r := gin.Default()
+	r.Use(func(context *gin.Context) {
+		ae := context.Request.Header.Get("Accept-Encoding")
+		switch true {
+		case strings.Contains(ae, "br"):
+			context.Request.Header.Set("Accept-Encoding", "br")
+		case strings.Contains(ae, "gzip"):
+			context.Request.Header.Set("Accept-Encoding", "gzip")
+		}
+		context.Next()
+	})
+	r.Use(gzip.Gzip(gzip.DefaultCompression))
+	r.Use(brotli.Brotli(cbrotli.WriterOptions{Quality: 5}))
+	r.GET("/ping", func(c *gin.Context) {
+		c.String(http.StatusOK, "pong "+fmt.Sprint(time.Now().Unix()))
+	})
+
+	// Listen and Server in 0.0.0.0:8080
+	r.Run(":8080")
+}
+```
