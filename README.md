@@ -1,5 +1,27 @@
 # gin-cbrotli
-Google Brotli Gin Middleware
+[Google Brotli](https://github.com/google/brotli) Gin Middleware
+
+## Dependency
+
+Debian/Ubuntu
+
+```sh
+sudo apt-get install libbrotli-dev
+```
+
+RHEL/CentOS
+
+```sh
+yum install brotli-devel
+```
+
+Alpine
+
+```sh
+apk add brotli-dev
+```
+
+[OTHERS](https://pkgs.org/search/?q=brotli)
 
 ## Usage
 
