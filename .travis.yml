@@ -13,7 +13,7 @@ jobs:
   - go: master
 
 before_install:
-  - sudo apt-get -y install brotli
+  - sudo apt-get -y install libbrotli-dev
 addons:
   apt:
     update: true
