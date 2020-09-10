@@ -1,4 +1,10 @@
 # gin-cbrotli
+
+[![Build Status](https://travis-ci.org/freyo/gin-cbrotli.svg)](https://travis-ci.org/freyo/gin-cbrotli)
+[![codecov](https://codecov.io/gh/freyo/gin-cbrotli/branch/master/graph/badge.svg)](https://codecov.io/gh/freyo/gin-cbrotli)
+[![Go Report Card](https://goreportcard.com/badge/github.com/freyo/gin-cbrotli)](https://goreportcard.com/report/github.com/freyo/gin-cbrotli)
+[![GoDoc](https://godoc.org/github.com/freyo/gin-cbrotli?status.svg)](https://godoc.org/github.com/freyo/gin-cbrotli)
+
 [Google Brotli](https://github.com/google/brotli) Gin Middleware
 
 ## Dependency
