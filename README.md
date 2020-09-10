@@ -21,6 +21,18 @@ Alpine
 apk add brotli-dev
 ```
 
+MacOS (with [homebrew](https://brew.sh))
+
+```sh
+brew install brotli
+```
+
+Windows (with [msys2](https://www.msys2.org))
+
+```sh
+pacman -S mingw-w64-x86_64-brotli
+```
+
 [OTHERS](https://pkgs.org/search/?q=brotli)
 
 ## Usage
